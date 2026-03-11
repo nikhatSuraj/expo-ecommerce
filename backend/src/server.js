@@ -32,7 +32,7 @@ app.use(
       express.json()(req, res, next); // parse json for non-webhook routes
     }
   },
-  paymentRoutes
+  paymentRoutes,
 );
 
 app.use(express.json());
@@ -64,7 +64,7 @@ if (ENV.NODE_ENV === "production") {
 const startServer = async () => {
   await connectDB();
   app.listen(ENV.PORT, () => {
-    console.log("Server is up and running");
+    console.log(`Server is up and running ${ENV.PORT}`);
   });
 };
 
